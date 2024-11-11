@@ -1,0 +1,76 @@
+{{ header }}
+
+<style>
+.promobox__plate {
+       min-height: 45px;
+    bottom: 10%;
+    left: 25px;
+    right: 25px;
+    background: aliceblue;
+	color:#582254;
+}
+.position-absolute {
+    position: absolute!important;
+}
+.css-theme-loaded .promobox:not(.promobox--is-slider) .promobox__content, .css-theme-loaded .slick-active .promobox__content {
+    transform: none;
+    opacity: 1;
+}
+.promobox:not(.promobox--is-slider) .promobox__content {
+    transition-duration: 0.5s !important;
+}
+</style>
+
+
+<script src="
+		https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
+		"></script>
+<link href="
+		https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
+		" rel="stylesheet">
+<!-- hero slider area start -->
+
+<!-- hero slider area end -->
+
+
+<!--New arrivals -->
+	<section class="new-arrivals"> <div class="container">
+		<div class="row">
+			<div class="col-12 text-center">
+				<br/>
+				<h2>COLLECTIONS</h2>
+
+				<br/>
+			</div>
+		</div>
+
+		<div class="row">
+			{% for product in style_categories %}
+
+				<div class="col-sm-4 col-6">
+					<div class="product-card text-center">
+						<a href="{{product.href}}" class="relative">
+							<img src="{{product.thumb}}" alt="" class="img-responsive">
+							<div class="promobox__plate position-absolute pointer-events-none">
+							<div class="promobox__content d-flex flex-column flex-center px-10 py-7">
+								<p class="h5 position-relative m-0 text-uppercase">{{product.name}}</p>
+								<p class="position-relative m-0">{{product.product_total}}  Products</p>
+							</div>
+						</div>
+						</a>
+						
+						
+
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+
+	</div>
+</section>
+
+
+
+
+
+{{ footer }}

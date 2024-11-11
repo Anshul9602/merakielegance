@@ -1,0 +1,148 @@
+{{ header }}
+
+<!-- hero slider area start -->
+<section class="slider-area">
+  
+      <div class="row m-0">
+      <div class="slider_banner col-12 p-0">
+        <div class="desktop-slider hero-slider-active slick-arrow-style slick-arrow-style_hero slick-dot-style">
+            {% for banner in banners %}
+            <a href="{{ banner.link }}">
+            <img src="{{ banner.image }}" alt="" class="img-response slider-img">
+            </a>
+            {% endfor %}
+        </div>
+      </div>
+         
+      </div>
+   
+</section>
+<!-- hero slider area end -->
+
+
+<!--New arrivals -->
+<section class="new-arrivals">
+  <div class="container pt-5">
+  <div class="row">
+      <div class="col-12 text-center">
+       
+        <h2>New Arrivals</h2>
+        <p class="description">Explore Meraki's collection, crafted to breathe new life into your home. </p>
+        <br />
+      </div>
+    </div>
+  
+    <div class="row">
+    {% for product in products %}
+
+      <div class="col-sm-4 col-6">
+        <div class="product-card text-center">
+          <a href="{{product.href}}">
+          <img src="{{product.thumb}}" alt="" class="img-responsive">
+          </a>
+          <h4 class="product_name">{{product.name}}</h4>
+          <p class="product_price">{{product.price}}</p>
+        </div>
+      </div>
+    {% endfor %}
+      </div>
+      <div class="row text-center">
+        <div class="col-12">
+        <a href="index.php?route=product/category&path=77">
+          <button class="btn btn-primary">View All &#8594;</button>
+        
+        </a>
+        </div>
+      </div>
+  </div>
+</section>
+<!--New arrivals -->
+
+
+<!---Shop by room------>
+<section class="shop_by_category mt-50 d-none">
+  <img src="image/elements/top.png" alt="" class="img-top-element">
+  <img src="image/elements/top.png" alt="" class="img-bottom-element">
+
+  <div class="container ">
+  <div class="row v-center ">
+      <div class="col-sm-4 col-12">
+        <br />
+        <h2>An Oasis Of Luxury</h2>
+        <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        <button class="btn btn-primary">Explore Now</button>
+      
+        <br /> <br />
+      </div>
+      <div class="col-sm-4 col-6 text-center">
+        <img src="image/elements/b1.png" alt="" class="img-responsive b1">
+      </div>
+      <div class="col-sm-4 col-6 text-center">
+        <img src="image/elements/b2.jpg" alt="" class="img-responsive b2">
+      </div>
+   
+    </div>
+  
+    </div>
+</section>
+<!---Shop by room------>
+<section><br /><br />
+  <img src="assets/img/banner/Meraki-Banner.jpg" alt="" class="img-responsive" style="width:100%" />
+</section>
+
+
+
+  {{ column_right }}
+
+
+<section>
+<img src="image/catalog/banners/Banner-3.jpg" alt="" class="img-responsive" />
+  
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!--instagram feed -->
+<section>
+<div class="container pt-5">
+  <div class="row ">
+    <div class="col-md-12 text-center" style="margin-top:10px">
+    <h2>Follow us on Instagram</h2>
+
+     <div class="col-md-12 pt-3">
+        <a href="https://www.instagram.com/meraki.eleganceredefined/">
+          <button class="btn btn-primary"><i class="fa fa-instagram"style="padding:0 10px 0 0"></i>Follow </button>
+        
+        </a>
+        </div>
+    </div>
+  </div>
+</div>
+</section>
+<br /><br />
+
+
+<script>
+var swiper = new Swiper(".topSwiper", {
+  grabCursor: true,
+  centeredSlides: true,
+  slidesPerView: 3,
+  spaceBetween: 20,
+  loop: true,
+
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
+  
+
+
+</script>
+{{ footer }}

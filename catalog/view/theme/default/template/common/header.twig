@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<!-- [if IE]><![endif] -->
+<!-- [if IE 8 ]><html dir="{{ direction }}" lang="{{ lang }}" class="ie8"><![endif] -->
+<!-- [if IE 9 ]><html dir="{{ direction }}" lang="{{ lang }}" class="ie9"><![endif] -->
+<!-- [if (gt IE 9)|!(IE)]><! -->
+	<html
+	dir="{{ direction }}" lang="{{ lang }}"> <!-- <![endif] -->
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<title>
+			{{ title }}
+		</title>
+		<base href="{{ base }}"/>
+		{% if description %}
+			<meta name="description" content="{{ description }}"/>
+		{% endif %}
+		{% if keywords %}
+			<meta name="keywords" content="{{ keywords }}"/>
+		{% endif %}
+		<!-- Bootstrap CSS -->
+		<link
+		rel="stylesheet" href="assets/css/vendor/bootstrap.min.css"/>
+		<!-- Pe-icon-7-stroke CSS -->
+		<link
+		rel="stylesheet" href="assets/css/vendor/pe-icon-7-stroke.css"/>
+		<!-- Font-awesome CSS -->
+		<link
+		rel="stylesheet" href="assets/css/vendor/font-awesome.min.css"/>
+		<!-- Slick slider css -->
+		<link rel="stylesheet" href="assets/css/plugins/slick.min.css"/>
+		<link
+		rel="stylesheet" href="assets/css/plugins/slick-theme.css"/>
+
+		<!-- animate css -->
+		<link
+		rel="stylesheet" href="assets/css/plugins/animate.css"/>
+		<!-- Nice Select css -->
+		<link
+		rel="stylesheet" href="assets/css/plugins/nice-select.css"/>
+		<!-- jquery UI css -->
+		<link
+		rel="stylesheet" href="assets/css/plugins/jqueryui.min.css"/>
+		<!-- main style css -->
+		<link
+		rel="stylesheet" href="assets/css/style.css?v1.120958485"/>
+		<!-- jQuery JS -->
+		<script src="assets/js/vendor/jquery-3.3.1.min.js"></script>
+
+		<style>
+.cart-footer, .cart{
+	z-index: 999999;
+	-webkit-transform: translateZ(0);
+	-webkit-transform: translate3d(0, 0, 0);
+-o-transform: translate3d(0, 0, 0);
+transform: translate3d(0, 0, 0);
+}
+@media screen and (max-width:990px){
+ .desktop-header{
+	display:none;
+ }
+}
+
+			.btn {
+				padding: 14px 30px;
+			}
+      .header-search-field {
+    border-bottom: 2px solid #f7f7f7;
+    background-color: #fff;
+    border-top: hidden;
+     border-radius: 0px; 
+    padding: 10px 20px 10px 50px;
+    width: 100%;
+    border-right: hidden;
+    border-left: hidden;
+}
+.coupon-mob{
+	 text-align: end;
+}
+			@media screen and (max-width:850px) {
+				 .header-main-area {
+					display: none;
+				}
+			}	
+				.coupon-mob{
+						text-align: center;
+					}
+				.swiper-button-prev,
+				.swiper-button-next {
+					display: none;
+				}
+				
+				.product_name {
+					font-size: 16px;
+				}
+				.hide-phone{
+					display:none;
+				}
+			}
+			h6{
+				font-size:14px;
+			}
+		</style>
+
+
+		{% for style in styles %}
+			<link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}"/>
+		{% endfor %}
+		{% for script in scripts %}
+			<script src="{{ script }}" type="text/javascript"></script>
+		{% endfor %}
+		<script src="catalog/view/javascript/common.js" type="text/javascript"></script>
+		{% for link in links %}
+			<link href="{{ link.href }}" rel="{{ link.rel }}"/>
+		{% endfor %}
+		{% for analytic in analytics %}
+			{{ analytic }}
+		{% endfor %}
+
+		<link rel="stylesheet" href="assets/css/edit.css?v1.1122" />
+
+	</head>
+	<body>
+
+
+		<!-- Start Header Area -->
+		<header
+			class="header-area">
+			<!-- main header start -->
+			<div
+				class="main-header desktop-header d-lg-block">
+				<!-- header middle area start -->
+				<div class="header-main-area">
+					<div class="top-strip">
+						<div class=" row m-0"style="padding:0 5% ;">
+							<div class="col-md-7">
+								<p style="display:inline-block">
+									<span style="text-transform:capitalize;">{{ coupon_name }}</span>
+									
+
+
+								</p>
+							</div>
+							<div class="col-md-5 col-xs-12 " style="text-align:end">
+							Flat {{ discount|split('.')[0] }}% Off  | Use Code:
+									<span style="text-transform:uppercase;">{{ code }}</span>
+								&nbsp;&nbsp;	&nbsp;&nbsp;
+							
+									
+									<i class="pe-7s-close close-offer-strip"></i>
+								&nbsp;&nbsp;
+								</div>
+						
+
+						</div>
+					</div>
+
+
+					<div class="pl-2 pr-2">
+
+						<div
+							class="row align-items-center ptb-20" style="justify-content: space-around;">
+							<!-- start logo area -->
+							<div class="col-md-2">
+								{{search}}
+							</div>
+							<div class="col-md-5 text-center">
+								<div id="logo">
+									<a href="{{ home }}">
+										<img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" class="img-responsive logo-home"/>
+									</a>
+								</div>
+							</div>
+							<!-- start logo area -->
+
+							<div class="col-md-3">
+								<div class="header-right d-flex align-items-center justify-content-end w-100">
+									<div class="header-configure-area w-100">
+										<ul class="nav justify-content-space-around w-100">
+<li>{{ currency }}</li>
+											<li class="user-hover">
+												<a href="{{ account }}" title="{{ text_account }}">
+													<i class="pe-7s-user"></i>
+												</a>
+												<ul class="dropdown-list">
+													{% if logged %}
+														<li>
+															<a href="{{ account }}">{{ text_account }}</a>
+														</li>
+														<li>
+															<a href="{{ order }}">{{ text_order }}</a>
+														</li>
+														<li>
+															<a href="{{ logout }}">{{ text_logout }}</a>
+														</li>
+													{% else %}
+														<li>
+															<a href="{{ register }}">{{ text_register }}</a>
+														</li>
+														<li>
+															<a href="{{ login }}">{{ text_login }}</a>
+														</li>
+													{% endif %}
+												</ul>
+											</li>
+											<li>
+												<a href="{{ wishlist }}" id="wishlist-total" title="{{ text_wishlist }}">
+													<i class="pe-7s-like"></i>
+												</a>
+											</li>
+											<li>
+												<a href="javascript:;" onclick="return false;" title="{{ text_shopping_cart }}" class="minicart-btn">
+													<i class="pe-7s-shopbag"></i>
+													<div class="notification cart-counter-header">
+														{{ cart_total }}
+													</div>
+												</a>
+											</li>
+
+										</ul>
+									</div>
+								</div>
+							</div>
+
+
+						</div>
+						<div class="col-md-12 text-center" style="border-top: 1px solid #e6e6e6;">
+							<div class="main-menu-area">
+								<div class="main-menu">
+									{{ menu }}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- header middle area end -->
+			</div>
+			<!-- main header start -->
+
+			<!-- mobile header start -->
+			<div
+				class="mobile-header d-lg-none d-md-block sticky" style="padding-top:0px">
+			<div class="top-strip">
+						<div class=" row m-0"style="padding:0 5% ;">
+							<div class="col-md-6 col-6 hide-phone">
+								<p style="display:inline-block">
+									<span style="text-transform:capitalize;">{{ coupon_name }}</span>
+									
+
+
+								</p>
+							</div>
+							<div class="col-md-6 col-12 coupon-mob">
+							Flat {{ discount|split('.')[0] }}% Off  | Use Code:
+									<span style="text-transform:uppercase;">{{ code }}</span>
+								
+								</div>
+						
+
+						</div>
+					</div>
+
+				<!-- mobile header top start -->
+				<div class="container-fluid m-0 p-0">
+			
+					<div class="row align-items-center m-0">
+						<div class="col-12 ">
+							<div style="padding-top:10px" class="mobile-main-header">
+								<div class="mobile-logo">
+									<a href="{{ home }}">
+										<img src="{{ logo }}" alt="Brand Logo"/>
+									</a>
+								</div>
+								<div class="mobile-menu-toggler">
+									<div class="mini-cart-wrap">
+										<a href="javascript:;" onclick="somefunction(); return false;" title="{{ text_shopping_cart }}" class="minicart-btn">
+											<i style="margin-top:-5px" class="pe-7s-cart"></i>
+											<div class="notification cart-counter-header">
+												{{ cart_total }}
+											</div>
+										</a>
+									</div>
+									&nbsp;&nbsp;&nbsp;
+									<a style=' color:#003B30' href="index.php?route=account/wishlist">
+										<i style="font-size:24px;" class="pe-7s-like"></i>
+									</a>
+									&nbsp;&nbsp;&nbsp;
+									<button style='margin-top:-5px' class="mobile-menu-btn">
+										<span></span>
+										<span></span>
+										<span></span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- mobile header top start -->
+			</div>
+			<!-- mobile header end -->
+
+			<!-- offcanvas mobile menu start -->
+			<!-- off-canvas menu start -->
+				<aside class="off-canvas-wrapper"> <div class="off-canvas-overlay"></div>
+				<div class="off-canvas-inner-content">
+					<div class="btn-close-off-canvas">
+						<i class="pe-7s-close"></i>
+					</div>
+
+					<div
+						class="off-canvas-inner">
+						<!-- search box start -->
+						<div class="search-box-offcanvas">
+							{{search1}}
+						</div>
+						<!-- search box end -->
+
+						<!-- mobile menu start -->
+						<div
+							class="mobile-navigation">
+							<!-- mobile menu navigation start -->
+							<nav>
+
+								{{ mobile_menu }}
+							</nav>
+							<!-- mobile menu navigation end -->
+						</div>
+						<!-- mobile menu end -->
+
+						<div class="mobile-settings">
+							<ul class="nav">
+								{{ currency }}
+								<li>
+									<div class="dropdown mobile-top-dropdown">
+										<a href="#" class="dropdown-toggle" id="myaccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											MY ACCOUNT
+											<i class="fa fa-angle-down"></i>
+										</a>
+										<div style="width:200px; padding:15px 0px" class="dropdown-menu" aria-labelledby="myaccount">
+
+											{% if logged %}
+												<a class="dropdown-item" href="{{ account }}">{{ text_account }}</a>
+												<a class="dropdown-item" href="{{ order }}">{{ text_order }}</a>
+												<a class="dropdown-item" href="{{ logout }}">{{ text_logout }}</a>
+											{% else %}
+												<a class="dropdown-item" href="{{ register }}">{{ text_register }}</a>
+												<a class="dropdown-item" href="{{ login }}">{{ text_login }}</a>
+											{% endif %}
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+
+						<!-- offcanvas widget area start -->
+						<div class="offcanvas-widget-area">
+							<div class="off-canvas-contact-widget">
+								<ul>
+									<li>
+										<i class="fa fa-mobile"></i>
+										<a href="#">+91 98298 66746</a>
+									</li>
+									<li>
+										<i class="fa fa-envelope-o"></i>
+										<a style="font-size:12px;" href="#">meraki.eleganceredefined@gmail.com</a>
+									</li>
+								</ul>
+							</div>
+
+							<!-- offcanvas widget area end -->
+						</div>
+					</div>
+				</aside>
+				{{ slide_cart }}
+			</header>
+
+
+			<script>
+				$(document).ready(function () {
+$(".close-offer-strip").click(function () {
+$(".top-strip").slideUp();
+})
+})
+
+
+
+     $('.search-btn-mobile').click(function(e) {
+                                    e.preventDefault();
+                                    if ($(this).prev().val() != "") {
+                                        location = 'index.php?route=product/search' + '&search=' + encodeURIComponent($(this).prev().val()) + '&description=true';
+                                    }
+                                })
+
+                                 $('.header-search-btn').click(function(e) {
+                                    e.preventDefault();
+                                    if ($("#search_top").val() != "") {
+                                        location = 'index.php?route=product/search' + '&search=' + encodeURIComponent($("#search_top").val()) + '&description=true';
+                                    }
+                                })
+
+	{# $('#search_top input[name=\'search\']').on('keydown', function(e) {
+		console.log("yes");
+		if (e.keyCode == 13) {
+			$('.header-search-box #search_top input[name=\'search\']').parent().find('.header-search-btn').trigger('click');
+		}
+	}); #}
+			</script>

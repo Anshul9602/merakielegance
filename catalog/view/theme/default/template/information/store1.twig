@@ -1,0 +1,88 @@
+{{ header }}
+<div class="breadcrumb-area hidden-phone">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="breadcrumb-wrap">
+					<nav aria-label="breadcrumb">
+						<ul class="breadcrumb">
+							{% for breadcrumb in breadcrumbs %}
+								<li class="ml-2">
+									<a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a>
+								</li>
+								&nbsp;/
+							{% endfor %}
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<br/>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 mb-3">
+			<h4 class="contact-title">STORE LOCATOR</h4>
+			<hr/>
+			<h6 class="contact-title">AlphaOne Mall</h6>
+			<p>18, Inverness Drive, Manalapan, New Jersey, zip code 07726</p>
+		</div>
+		<div class="col-md-6 mb-4">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3044.701848687964!2d-74.38127002344486!3d40.26015697146519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3d70c6522560f%3A0x4cd066d3eff93df2!2s18%20Inverness%20Dr%2C%20Manalapan%20Township%2C%20NJ%2007726%2C%20USA!5e0!3m2!1sen!2sin!4v1686139782756!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function (e) {
+function isEmail(email) {
+var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+return regex.test(email);
+}
+
+$("#send_con").click(function (e) {
+e.preventDefault();
+if ($("#email").val() != "" && $("#name").val() != "" && $("#message").val() != "") {
+if (! isEmail($("#email").val())) {
+alert('Invalid Email');
+return false;
+}
+$.ajax({
+url: 'index.php?route=common/contact/send_email',
+method: 'POST',
+data: {
+"email": $("#email").val(),
+"phone": $("#phone").val(),
+"name": $("#name").val(),
+"message": $("#message").val(),
+"subject": $("#subject").val()
+},
+
+beforeSend: function () {
+$("#send_con").attr('disabled', true);
+$("#send_con").text('Sending Email . . .');
+},
+
+success: function (data) {
+
+alert("Thank you for your message, we will be in touch!");
+$("#email").val("");
+$("#name").val("");
+$("#message").val("");
+$("#phone").val("");
+$("#subject").val("");
+
+$("#send_con").attr('disabled', false);
+$("#send_con").text('Send Email');
+}
+
+})
+} else {
+alert("Please fill the form completely");
+}
+
+
+})
+});
+</script>
+{{ footer }}

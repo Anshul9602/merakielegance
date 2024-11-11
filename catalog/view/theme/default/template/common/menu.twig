@@ -1,0 +1,24 @@
+{% if categories %}
+                  <nav class="desktop-menu">
+                      <ul class="header-style-4 justify-content-center">
+                        {% for category in categories %}
+                          {% if category.children %}
+                          <li class="dropdown" style="padding: 10px;">
+                          <a href="{{ category.href }}" class="dropdown-toggle" data-toggle="dropdown">{{ category.name }}</a>
+                            <ul class="dropdown">
+                               {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
+                                  {% for child in children %}
+                                  <li><a href="{{ child.href }}">{{ child.name }}</a></li>
+                                  {% endfor %}
+                                {% endfor %}
+                              </ul>
+                          </li>
+                          {% else %}
+                          <li style="padding: 10px;"><a href="{{ category.href }}">{{ category.name }}</a></li>
+                          {% endif %}
+                        {% endfor %}
+                       
+                      </ul>
+                    </nav>
+                
+{% endif %} 

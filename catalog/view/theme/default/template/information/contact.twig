@@ -1,0 +1,90 @@
+{{ header }}
+<div class="breadcrumb-area hidden-phone">
+   <div class="container">
+      <div class="row">
+         <div class="col-12">
+            <div class="breadcrumb-wrap">
+               <nav aria-label="breadcrumb">
+                  <ul class="breadcrumb">
+                     {% for breadcrumb in breadcrumbs %}
+                     <li class="ml-2"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+                     &nbsp;/
+                     {% endfor %}
+                  </ul>
+               </nav>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<br />
+<div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="contact-message">
+                    <h4 class="contact-title">Send Us A Message</h4>
+                    <form  action="index.php?route=information/contact" method="post" class="contact-form">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <input id="name" name="name" placeholder="Name *" type="text" required="">
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <input id="phone" name="phone" placeholder="Phone *" type="tel" maxlength="12" required="">
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <input id="email" name="email" placeholder="Email *" type="email" required="">
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <input id="subject" name="subject" placeholder="Subject *" type="text">
+                            </div>
+                            <div class="col-12">
+                                <div class="contact2-textarea text-center">
+                                    <textarea id="message" placeholder="Message *" name="enquiry" class="form-control2" required=""></textarea>
+                                </div>
+                                <div class="contact-btn1">
+                                    <button class="btn btn-hero" type="submit">Send Message</button>
+                               <br /><br />
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="contact-info">
+                    
+                    <h6 class="contact-title">India</h6>
+                    <ul>
+                        <li><i class="fa fa-phone"></i> +91 98298 66746</li>
+                        <li><i class="fa fa-envelope-o"></i>meraki.eleganceredefined@gmail.com </li>
+                        <li><i class="fa fa-map-pin"></i>353, Hanuman Nagar Extension, Janak Marg, Sirsi Road, Jaipur 
+                       </li>
+                        <li>
+                        <a href="index.php?route=information/store_india" >Store Locater</a></li>
+                 
+                    </ul>
+                   
+                    <hr/>
+                    <h6 class="contact-title pt-2">USA</h6>
+                    <ul>
+                        <li><i class="fa fa-phone"></i> +19086963680</li>
+                        <li><i class="fa fa-envelope-o"></i>meraki.eleganceredefined@gmail.com             
+                        </li>
+                        <li><i class="fa fa-map-pin"></i>  Manalapan, New Jersey, zip code 07726
+                        
+                        </li>
+                        <li><a href="index.php?route=information/store_usa" >Store Locater</a>
+                        </li>
+                 
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+   
+</script>
+{{ footer }}
